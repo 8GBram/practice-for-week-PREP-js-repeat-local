@@ -21,7 +21,10 @@ function doubler(nums) {
     /* Takes an array of numbers and returns a new array where every element of
     the original array is multiplied by 2. */
     // Your code here
-    return nums.concat(nums)
+    for(let i = 0; i < nums.length; i++){
+        nums[i] *= 2;
+    }
+    return nums;
 };
 
 function combineArrays(arr1, arr2) {
@@ -30,7 +33,7 @@ function combineArrays(arr1, arr2) {
     calling this method won't permanently change, also known as **mutate**,
     either array. */
     // Your code here
-    return arr1.concat(arr2)
+    return arr1.concat(arr2);
 };
 
 function wordWithinArray(word, arr) {
@@ -38,6 +41,7 @@ function wordWithinArray(word, arr) {
     boolean that returns true if that string is located inside of the array, or
     false if it does not. Use `Array.indexOf`. */
     // Your code here
+    return arr.indexOf(word) != -1;
 };
 
 function echo(str) {
@@ -46,34 +50,46 @@ function echo(str) {
     echo("hey"); // => returns "HEY ... hey ... hey"
     echo("JUMp"); // => returns "JUMP ... JUMp ... jump" */
     // Your code here
+    return str.toUpperCase() + " ... " + str + " ... " + str.toLowerCase();
 };
 
 function fizzBuzz(max) {
     /* Takes a number, max and returns an array that contains every number from
     0 to max (not inclusive) that is divisible by either 3 or 5, **but not both**. */
     // Your code here
+    let res = [];
+    for(let i = 3; i < max; i++){
+        if(i % 3 == 0 || i % 5 == 0){
+            res.concat(i);
+        }
+    }
+    return res;
 };
 
 function hello(name) {
     /* Takes in a string name and returns a string saying "Hello, " to that name. */
     // Your code here
+    return "Hello, " + name;
 };
 
 function goodbye(name) {
     /* Takes in a string name and returns a string saying "Bye, " to that name. */
     // Your code here
+    return "Bye, " + name;
 };
 
 function isFive(num) {
     /* Takes in a number, num, and returns `true` if a number is equal to 5 and
     `false` if it is not. */
     // Your code here
+    return num == 5;
 };
 
 function isOdd(num) {
     /* Takes in a number and returns `true` if the number is odd and returns
     `false` otherwise. Try writing this with and without `if` statements */
     // Your code here
+    return num % 2 == 1;
 };
 
 function isSubString(searchString, subString) {
@@ -81,6 +97,7 @@ function isSubString(searchString, subString) {
     `true` if `subString` is a part of the`searchString`, regardless of upper
     or lower case, and `false` if otherwise. */
     // Your code here
+    return (searchString.toLowerCase()).indexOf(subString.toLowerCase()) != -1;
 };
 
 function aCounter(word) {
@@ -102,6 +119,13 @@ function aCounter(word) {
     return count;
     */
     // Your code here
+    let count = 0;
+    for(let i = 0; i < word.length; i++){
+        if(word[i].toLowerCase() === "a"){
+            count++;
+        }
+    }
+    return count;
 };
 
 module.exports = {
